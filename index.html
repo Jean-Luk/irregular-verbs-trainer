@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irregular Verbs</title>
+    <link rel="shortcut icon" href="favicon.svg">
     <style type="text/css">
         body {
-            margin-top: 10vw;
+            margin-top: 30vh;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color: #e8eeeb;
-            background: #2f3136
+            background: #232529
         }
         input {
             padding:10px 0px;
@@ -20,64 +21,46 @@
             border-radius: 10px;
             outline:none;
             text-align: center;
-            font-size: 20px;
+            font-size: 15pt;
         }
         button {
             padding:10px 0px;
-            width: 150px;
+            width: 244px;
             margin-top: 10px;
+            margin-right: 10px;
             border:none;
             border-radius: 10px;
             cursor:pointer;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 12pt;
         }
         button:hover {
             color:#2f3136;
             background: #c2cdc5
         }
-
+        img {
+            height: 20pt;
+            vertical-align: middle;
+        }
+        h2 {
+            margin: 0;
+            font-size: 20pt;
+        }
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 28pt;
+        }
     </style>
 </head>
 <body>
     <h2>Escreva o passado simples do verbo:</h2>
     <h1 id="verb"></h1>
     <form>
-    <input type="text" name="answer" id="answer"><br>
-    <button type="submit" id="sendButton"><b>Enviar</b></button>
+        <input type="text" name="answer" id="answer"><br>
+        <button type="submit" id="sendButton"><b>Enviar</b></button><b id="record"><img src="trophy-icon.png"> 0</b>
     </form>
     <br>
     <div id="result"><i><font size="2">*Você pode apertar ENTER para enviar</font></i></div>
-    <script>
-        const verb = document.getElementById("verb")
-        const result = document.getElementById("result")
-        const sendButton =  document.getElementById("sendButton")
-        const answerInput = document.getElementById("answer")
-        const verbs = ["be", "beat", "become", "begin", "bet", "blow", "break", "bring", "build", "buy", "catch", "choose", "come", "cut", "deal", "do", "draw", "dream", "drink", "drive", "eat", "fall", "feel", "fight", "find", "fit", "flee", "forget", "get", "give", "go", "grow", "have", "hear", "hide", "hold", "keep", "know", "lay", "lead", "learn", "leave", "let", "lose", "make", "mean", "meet", "misunderstand", "overcome", "pay", "put", "read", "rise", "run", "say", "see", "seek", "send", "set", "shake", "shine", "show", "sing", "sit", "sleep", "speak", "spend", "spread", "stand", "steal", "strive", "swim", "take", "teach", "tell", "think", "throw", "understand", "wear", "win", "write"]
-        const answers = ["was", "beat", "became", "began", "bet", "blew", "broke", "brought", "built", "bought", "caught", "chose", "came", "cut", "dealt", "did", "drew", "dreamt", "drank", "drove", "ate", "fell", "felt", "fought", "found", "fit", "fled", "forgot", "got", "gave", "went", "grew", "had", "heard", "hid", "held", "kept", "knew", "laid", "led", "learnt", "left", "let", "lost", "made", "meant", "met", "misunderstood", "overcame", "paid", "put", "read", "rose", "ran", "said", "saw", "sought", "sent", "set", "shook", "shone", "showed", "sang", "sat", "slept", "spoke", "spent", "spread", "stood", "stole", "strove", "swam", "took", "taught", "told", "thought", "threw", "understood", "wore", "won", "wrote"]
-        let selectedVerb = 0
-        let hits = 0
-        function sendVerb () {
-            answerInput.value = "";
-            selectedVerb = Math.floor(Math.random() * verbs.length);
-            verb.innerHTML = verbs[selectedVerb][0].toUpperCase() + verbs[selectedVerb].substring(1);
-        }
-        sendButton.addEventListener("click", function(ev){
-            ev.preventDefault()
-            verifyAnswer()
-        })
-        function verifyAnswer () {
-            if (answerInput.value.toLowerCase() == answers[selectedVerb]) {
-                hits++
-                result.innerHTML = `<h2>Acertou</h2>x${hits}`
-            } else {
-                result.innerHTML = `<h2>Errou</h2>O passado simples de <b>${verbs[selectedVerb]}</b> é <b>${answers[selectedVerb]}</b>.`
-                hits = 0
-            }
-            sendVerb()
-        }
-    sendVerb();
-
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
